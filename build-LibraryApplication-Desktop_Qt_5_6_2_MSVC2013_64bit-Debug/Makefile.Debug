@@ -62,12 +62,12 @@ OBJECTS       = debug\main.obj \
 		debug\moc_start_activity.obj
 
 DIST          =  ..\LibraryApplication\sign_up_activity.h \
-		..\LibraryApplication\data_default.h \
 		..\LibraryApplication\sign_in_activity.h \
-		..\LibraryApplication\qt_library.h \
 		..\LibraryApplication\start_activity.h \
 		..\LibraryApplication\account.h \
-		..\LibraryApplication\user.h ..\LibraryApplication\main.cpp \
+		..\LibraryApplication\user.h \
+		..\LibraryApplication\library.h \
+		..\LibraryApplication\marco.h ..\LibraryApplication\main.cpp \
 		..\LibraryApplication\sign_up_activity.cpp \
 		..\LibraryApplication\sign_in_activity.cpp \
 		..\LibraryApplication\start_activity.cpp \
@@ -184,7 +184,8 @@ compiler_rcc_clean:
 compiler_moc_header_make_all: debug\moc_sign_up_activity.cpp debug\moc_sign_in_activity.cpp debug\moc_start_activity.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) debug\moc_sign_up_activity.cpp debug\moc_sign_in_activity.cpp debug\moc_start_activity.cpp
-debug\moc_sign_up_activity.cpp: ..\LibraryApplication\qt_library.h \
+debug\moc_sign_up_activity.cpp: ..\LibraryApplication\marco.h \
+		..\LibraryApplication\library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreapplication.h \
@@ -305,6 +306,7 @@ debug\moc_sign_up_activity.cpp: ..\LibraryApplication\qt_library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QFormLayout \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qformlayout.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QPushButton \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractbutton.h \
@@ -327,11 +329,16 @@ debug\moc_sign_up_activity.cpp: ..\LibraryApplication\qt_library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QMessageBox \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qmessagebox.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
-		..\LibraryApplication\data_default.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		..\LibraryApplication\account.h \
+		..\LibraryApplication\user.h \
 		..\LibraryApplication\sign_up_activity.h
 	C:\Qt\Qt5.6.2\5.6\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Assignment/LibraryApplication -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtWidgets -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtGui -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtANGLE -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtCore -I. ..\LibraryApplication\sign_up_activity.h -o debug\moc_sign_up_activity.cpp
 
-debug\moc_sign_in_activity.cpp: ..\LibraryApplication\qt_library.h \
+debug\moc_sign_in_activity.cpp: ..\LibraryApplication\marco.h \
+		..\LibraryApplication\library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreapplication.h \
@@ -452,6 +459,7 @@ debug\moc_sign_in_activity.cpp: ..\LibraryApplication\qt_library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QFormLayout \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qformlayout.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QPushButton \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractbutton.h \
@@ -474,11 +482,16 @@ debug\moc_sign_in_activity.cpp: ..\LibraryApplication\qt_library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QMessageBox \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qmessagebox.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
-		..\LibraryApplication\data_default.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		..\LibraryApplication\account.h \
+		..\LibraryApplication\user.h \
 		..\LibraryApplication\sign_in_activity.h
 	C:\Qt\Qt5.6.2\5.6\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Assignment/LibraryApplication -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtWidgets -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtGui -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtANGLE -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtCore -I. ..\LibraryApplication\sign_in_activity.h -o debug\moc_sign_in_activity.cpp
 
-debug\moc_start_activity.cpp: ..\LibraryApplication\qt_library.h \
+debug\moc_start_activity.cpp: ..\LibraryApplication\marco.h \
+		..\LibraryApplication\library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreapplication.h \
@@ -599,6 +612,7 @@ debug\moc_start_activity.cpp: ..\LibraryApplication\qt_library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QFormLayout \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qformlayout.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QPushButton \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractbutton.h \
@@ -621,7 +635,9 @@ debug\moc_start_activity.cpp: ..\LibraryApplication\qt_library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QMessageBox \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qmessagebox.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
-		..\LibraryApplication\data_default.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
 		..\LibraryApplication\start_activity.h
 	C:\Qt\Qt5.6.2\5.6\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Assignment/LibraryApplication -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtWidgets -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtGui -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtANGLE -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtCore -I. ..\LibraryApplication\start_activity.h -o debug\moc_start_activity.cpp
 
@@ -641,7 +657,9 @@ compiler_clean: compiler_moc_header_clean
 
 ####### Compile
 
-debug\main.obj: ..\LibraryApplication\main.cpp C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QApplication \
+debug\main.obj: ..\LibraryApplication\main.cpp ../LibraryApplication/marco.h \
+		../LibraryApplication/library.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreapplication.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qglobal.h \
@@ -751,8 +769,6 @@ debug\main.obj: ..\LibraryApplication\main.cpp C:\Qt\Qt5.6.2\5.6\msvc2013_64\inc
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtouchdevice.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qguiapplication.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qinputmethod.h \
-		../LibraryApplication/start_activity.h \
-		../LibraryApplication/qt_library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QWidget \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QHBoxLayout \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qboxlayout.h \
@@ -763,6 +779,7 @@ debug\main.obj: ..\LibraryApplication\main.cpp C:\Qt\Qt5.6.2\5.6\msvc2013_64\inc
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QFormLayout \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qformlayout.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QPushButton \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractbutton.h \
@@ -785,12 +802,18 @@ debug\main.obj: ..\LibraryApplication\main.cpp C:\Qt\Qt5.6.2\5.6\msvc2013_64\inc
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QMessageBox \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qmessagebox.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
-		../LibraryApplication/data_default.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		../LibraryApplication/start_activity.h \
 		../LibraryApplication/sign_up_activity.h \
+		../LibraryApplication/account.h \
+		../LibraryApplication/user.h \
 		../LibraryApplication/sign_in_activity.h
 
 debug\sign_up_activity.obj: ..\LibraryApplication\sign_up_activity.cpp ../LibraryApplication/sign_up_activity.h \
-		../LibraryApplication/qt_library.h \
+		../LibraryApplication/marco.h \
+		../LibraryApplication/library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreapplication.h \
@@ -911,6 +934,7 @@ debug\sign_up_activity.obj: ..\LibraryApplication\sign_up_activity.cpp ../Librar
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QFormLayout \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qformlayout.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QPushButton \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractbutton.h \
@@ -933,10 +957,15 @@ debug\sign_up_activity.obj: ..\LibraryApplication\sign_up_activity.cpp ../Librar
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QMessageBox \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qmessagebox.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
-		../LibraryApplication/data_default.h
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		../LibraryApplication/account.h \
+		../LibraryApplication/user.h
 
 debug\sign_in_activity.obj: ..\LibraryApplication\sign_in_activity.cpp ../LibraryApplication/sign_in_activity.h \
-		../LibraryApplication/qt_library.h \
+		../LibraryApplication/marco.h \
+		../LibraryApplication/library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreapplication.h \
@@ -1057,6 +1086,7 @@ debug\sign_in_activity.obj: ..\LibraryApplication\sign_in_activity.cpp ../Librar
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QFormLayout \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qformlayout.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QPushButton \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractbutton.h \
@@ -1079,10 +1109,15 @@ debug\sign_in_activity.obj: ..\LibraryApplication\sign_in_activity.cpp ../Librar
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QMessageBox \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qmessagebox.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
-		../LibraryApplication/data_default.h
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		../LibraryApplication/account.h \
+		../LibraryApplication/user.h
 
 debug\start_activity.obj: ..\LibraryApplication\start_activity.cpp ../LibraryApplication/start_activity.h \
-		../LibraryApplication/qt_library.h \
+		../LibraryApplication/marco.h \
+		../LibraryApplication/library.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreapplication.h \
@@ -1203,6 +1238,7 @@ debug\start_activity.obj: ..\LibraryApplication\start_activity.cpp ../LibraryApp
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QFormLayout \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qformlayout.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QPushButton \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractbutton.h \
@@ -1225,14 +1261,16 @@ debug\start_activity.obj: ..\LibraryApplication\start_activity.cpp ../LibraryApp
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QMessageBox \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qmessagebox.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
-		../LibraryApplication/data_default.h
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime
 
 debug\account.obj: ..\LibraryApplication\account.cpp ../LibraryApplication/account.h \
-		../LibraryApplication/user.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdatetime.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstring.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qchar.h \
+		../LibraryApplication/marco.h \
+		../LibraryApplication/library.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreapplication.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qconfig.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfeatures.h \
@@ -1262,28 +1300,127 @@ debug\account.obj: ..\LibraryApplication\account.cpp ../LibraryApplication/accou
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qchar.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearray.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringbuilder.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qshareddata.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhash.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiterator.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhashfunctions.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qregexp.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringmatcher.h
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreevent.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmetatype.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qcursor.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qwidget.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpalette.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgb.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgba64.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qbrush.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qmatrix.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpolygon.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qregion.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdatastream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiodevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qline.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtransform.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpainterpath.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qimage.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixelformat.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qshareddata.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhash.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qfont.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qfontmetrics.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qfontinfo.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qsizepolicy.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qkeysequence.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qevent.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvariant.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdebug.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtextstream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlocale.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qset.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qurl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qurlquery.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfile.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfiledevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qvector2d.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtouchdevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QWidget \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QFormLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qformlayout.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QString \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QDateEdit \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdatetimeedit.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdatetime.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QMessageBox \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qmessagebox.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime
 
 debug\user.obj: ..\LibraryApplication\user.cpp ../LibraryApplication/user.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdatetime.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstring.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qchar.h \
+		../LibraryApplication/marco.h \
+		../LibraryApplication/library.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreapplication.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qglobal.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qconfig.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfeatures.h \
@@ -1313,22 +1450,120 @@ debug\user.obj: ..\LibraryApplication\user.cpp ../LibraryApplication/user.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmutex.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnumeric.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qchar.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearray.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrefcount.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnamespace.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qarraydata.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringbuilder.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qshareddata.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhash.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlist.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiterator.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhashfunctions.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpair.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearraylist.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringlist.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qregexp.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringmatcher.h
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreevent.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmetatype.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qcursor.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qwidget.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpalette.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgb.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgba64.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qbrush.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qmatrix.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpolygon.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qregion.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdatastream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiodevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qline.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtransform.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpainterpath.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qimage.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixelformat.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qshareddata.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhash.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qfont.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qfontmetrics.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qfontinfo.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qsizepolicy.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qkeysequence.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qevent.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvariant.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdebug.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtextstream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlocale.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qset.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qurl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qurlquery.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfile.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfiledevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qvector2d.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtouchdevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QWidget \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QFormLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qformlayout.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLayout \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QString \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QDateEdit \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdatetimeedit.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdatetime.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QMessageBox \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qmessagebox.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime
 
 debug\moc_sign_up_activity.obj: debug\moc_sign_up_activity.cpp 
 

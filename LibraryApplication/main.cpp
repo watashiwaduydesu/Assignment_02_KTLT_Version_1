@@ -1,7 +1,11 @@
-#include <QApplication>
+#include "marco.h"
+#include "library.h"
+
 #include "start_activity.h"
 #include "sign_up_activity.h"
 #include "sign_in_activity.h"
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -13,6 +17,7 @@ int main(int argc, char *argv[])
 //    window_start.show();
     window_sign_up.show();
 //    window_sign_in.show();
+
 
     return a.exec();
 }

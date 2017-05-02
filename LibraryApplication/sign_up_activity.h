@@ -1,8 +1,12 @@
 #ifndef SIGN_UP_ACTIVITY_H
 #define SIGN_UP_ACTIVITY_H
 
-#include "qt_library.h"
-#include "data_default.h"
+// GIAO DIEN DANG KI TAI KHOAN
+
+#include "marco.h"
+#include "library.h"
+#include "account.h"
+#include "user.h"
 
 class sign_up_activity : public QWidget
 {
@@ -14,7 +18,8 @@ private:
     QVBoxLayout *main_layout;
     QLabel *title;
     QFormLayout *form;
-    QLineEdit *account_name, *password_1, *password_2, *username, *id, *email;
+    QLineEdit *account_name, *password_1, *password_2;
+    QLineEdit *id, *email, *username, *telephone;
     QDateEdit *birth_date;
     QHBoxLayout *layout_btn;
     QPushButton *btn_send_sign_up, *btn_cancle;

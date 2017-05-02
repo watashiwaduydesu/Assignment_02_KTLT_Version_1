@@ -1,8 +1,10 @@
 #ifndef SIGN_IN_ACTIVITY_H
 #define SIGN_IN_ACTIVITY_H
 
-#include "qt_library.h"
-#include "data_default.h"
+#include "marco.h"
+#include "library.h"
+#include "account.h"
+#include "user.h"
 
 class sign_in_activity : public QWidget
 {

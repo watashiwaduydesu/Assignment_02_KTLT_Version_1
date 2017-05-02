@@ -1,8 +1,8 @@
 #ifndef START_ACTIVITY_H
 #define START_ACTIVITY_H
 
-#include "qt_library.h"
-#include "data_default.h"
+#include "marco.h"
+#include "library.h"
 
 class start_activity : public QWidget
 {

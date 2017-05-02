@@ -1,9 +1,8 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
-#include "user.h"
-#include <string>
-#include <vector>
+#include "marco.h"
+#include "library.h"
 
 using namespace std;
 
@@ -18,6 +17,9 @@ private:
     int code_of_user;
 
 public:
+    static int existAccountName(string account_name);
+//    void readData();
+//    void getData();
 };
 
 #endif // ACCOUNT_H

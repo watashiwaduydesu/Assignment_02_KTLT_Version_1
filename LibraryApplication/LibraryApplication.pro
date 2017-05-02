@@ -19,9 +19,9 @@ SOURCES += main.cpp \
     user.cpp
 
 HEADERS  += sign_up_activity.h \
-    data_default.h \
     sign_in_activity.h \
-    qt_library.h \
     start_activity.h \
     account.h \
-    user.h
+    user.h \
+    library.h \
+    marco.h

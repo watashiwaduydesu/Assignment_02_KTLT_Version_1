@@ -11,4 +11,8 @@
 #define FONT_SIZE_XLARGE        QFont("Verdana", 13)
 #define FONT_SIZE_XXLARGE       QFont("Verdana", 15)
 
+#define TRUE                    1000
+#define FALSE                   1001
+#define NOT_ACCESS_FILE         1002
+
 #endif // DATA_DEFAULT_H
