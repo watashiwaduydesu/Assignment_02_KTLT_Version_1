@@ -1,0 +1,76 @@
+#include "sign_in_activity.h"
+
+sign_in_activity::sign_in_activity(QWidget *parent) : QWidget(parent)
+{
+    this->setMinimumWidth(500);
+    this->setFont(FONT_SIZE_NORMAL);
+    this->setWindowTitle("Đăng nhập");
+
+    // khoi tao layout cua widget
+    main_layout = new QVBoxLayout(this);
+
+    // tieu de widget
+    title = new QLabel("ĐĂNG NHẬP TÀI KHOẢN");
+    title->setFont(FONT_SIZE_XLARGE);
+    title->setAlignment(Qt::AlignCenter);
+    title->setMargin(30);
+    title->setStyleSheet("font-weight: bold");
+    main_layout->addWidget(title);
+
+    // form sign up
+    form = new QFormLayout();
+
+    account_name = new QLineEdit();
+    password = new QLineEdit();
+
+    account_name->setMaxLength(MAX_LENGTH_INPUT);
+    password->setMaxLength(MAX_LENGTH_INPUT);
+    password->setEchoMode(QLineEdit::Password);
+
+    form->addRow("Tên tài khoản:", account_name);
+    form->addRow("Nhập mật khẩu:", password);
+
+    form->setHorizontalSpacing(15);
+    form->setVerticalSpacing(10);
+    form->setContentsMargins(20,0,20,0);
+    main_layout->addLayout(form);
+
+    // layout cho button
+    layout_btn = new QHBoxLayout();
+
+    btn_send_sign_in = new QPushButton("Đăng nhập");
+    btn_cancle = new QPushButton("Thoát");
+
+    layout_btn->addStretch(1);
+    layout_btn->addWidget(btn_send_sign_in);
+    layout_btn->addWidget(btn_cancle);
+    layout_btn->addStretch(1);
+    layout_btn->setSpacing(30);
+    layout_btn->setMargin(20);
+    main_layout->addLayout(layout_btn);
+
+    // set layout cho widget
+    main_layout->addStretch(1);
+    this->setLayout(main_layout);
+    this->setListenEvent();
+}
+
+void sign_in_activity::setListenEvent() {
+    connect(btn_send_sign_in, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_send_sign_in()));
+    connect(btn_cancle, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_cancle()));
+}
+
+void sign_in_activity::onClick_btn_send_sign_in() {
+    QMessageBox *message = new QMessageBox(this);
+    message->setFont(FONT_SIZE_NORMAL);
+    message->setWindowTitle("Thông báo");
+
+    // CAN KIEM TRA MOT SO THONG TIN O DAY TRUOC KHI HIEN THONG BAO THANH CONG
+    message->setText("Bạn đã đăng nhập thành công!\n"
+                     "Nhấn OK để tiếp tục\n");
+    message->exec();
+}
+
+void sign_in_activity::onClick_btn_cancle() {
+    this->hide();
+}
