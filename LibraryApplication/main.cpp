@@ -10,9 +10,9 @@ int main(int argc, char *argv[])
     start_activity window_start;
     sign_up_activity window_sign_up;
     sign_in_activity window_sign_in;
-    window_start.show();
+//    window_start.show();
     window_sign_up.show();
-    window_sign_in.show();
+//    window_sign_in.show();
 
     return a.exec();
 }
