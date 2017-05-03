@@ -23,35 +23,45 @@ sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
     account_name = new QLineEdit();
     password_1 = new QLineEdit();
     password_2 = new QLineEdit();
-    email = new QLineEdit();
     id = new QLineEdit();
-    telephone = new QLineEdit();
+    email = new QLineEdit();
     username = new QLineEdit();
+    telephone = new QLineEdit();
     birth_date = new QDateEdit();
 
     account_name->setMaxLength(MAX_LENGTH_INPUT);
     password_1->setMaxLength(MAX_LENGTH_INPUT);
     password_2->setMaxLength(MAX_LENGTH_INPUT);
-    email->setMaxLength(MAX_LENGTH_INPUT);
     id->setMaxLength(MAX_LENGTH_INPUT);
+    email->setMaxLength(MAX_LENGTH_INPUT);
     username->setMaxLength(MAX_LENGTH_INPUT);
     telephone->setMaxLength(MAX_LENGTH_INPUT);
 
-    telephone->setInputMask("99999999990"); // dinh dang so dien thoai, 10 so hoac 11 so
+    QRegExp re; // set CU PHAP FORMAT CHO INPUT
+    re.setPattern(REGEXP_ACCOUNT_NAME);
+    account_name->setValidator(new QRegExpValidator(re));
+    re.setPattern(REGEXP_PASSWORD);
+    password_1->setValidator(new QRegExpValidator(re));
+    password_2->setValidator(new QRegExpValidator(re));
+    password_1->setEchoMode(QLineEdit::Password);
+    password_2->setEchoMode(QLineEdit::Password);
+    re.setPattern(REGEXP_ID);
+    id->setValidator(new QRegExpValidator(re));
+    re.setPattern(REGEXP_EMAIL);
+    email->setValidator(new QRegExpValidator(re));
+    re.setPattern(REGEXP_TELEPHONE);
+    telephone->setValidator(new QRegExpValidator(re));
 
     birth_date->setCalendarPopup(true);
     birth_date->setDisplayFormat("dd/MM/yyyy");
     birth_date->setMaximumDate(QDate::currentDate().addYears(-16)); // toi thieu phai 16 tuoi
     birth_date->setMinimumDate(QDate::currentDate().addYears(-120)); // toi da la 120 tuoi
 
-    password_1->setEchoMode(QLineEdit::Password);
-    password_2->setEchoMode(QLineEdit::Password);
-
     form->addRow("Tên tài khoản:", account_name);
     form->addRow("Nhập mật khẩu:", password_1);
     form->addRow("Nhập lại mật khẩu:", password_2);
-    form->addRow("Địa chỉ Email:", email);
     form->addRow("Chứng minh nhân dân:", id);
+    form->addRow("Địa chỉ Email:", email);
     form->addRow("Tên người dùng:", username);
     form->addRow("Số điện thoại:", telephone);
     form->addRow("Ngày sinh:", birth_date);
@@ -96,6 +106,10 @@ void sign_up_activity::onClick_btn_send_sign_up() {
     for (;;) {
         // KIEM TRA account_name CO BI TRUNG KHONG ?
         string s = account_name->text().toStdString();
+        if (s.size() < 5) {
+            message->setText("Tên tài khoản tối thiêu 5 kí tự");
+            break;
+        }
         if (account::existAccountName(s) == TRUE) {
             message->setText("Tên tài khoản đã tồn tại!\n");
             break;
@@ -107,15 +121,26 @@ void sign_up_activity::onClick_btn_send_sign_up() {
             message->setText("Mật khẩu không khớp!\n");
             break;
         }
+        if (p1.size() < 5) {
+            message->setText("Mật khẩu quá yếu!\n"
+                             "Mật khẩu tối thiểu 5 kí tự");
+            break;
+        }
         // KIEM TRA DIA CHI email HOP LE
-        string e = email->text().toStdString();
-
-
-
-
+        QRegExp re(REGEXP_EMAIL);
+        if (!re.exactMatch(email->text())) {
+            message->setText("Địa chỉ Email không hợp lệ");
+            break;
+        }
+        // KIEM TRA username
+        string ss = username->text().toStdString();
+        if (ss.size() == 0) {
+            message->setText("Tên người dùng không thể rỗng");
+            break;
+        }
         // KIEM TRA SO DIEN THOAI
-        string t = telephone->text().toStdString();
-        if (t.size() < 10) {
+        string tel = telephone->text().toStdString();
+        if (tel.size() < 10) {
             message->setText("Số điện thoại không hợp lệ!\n");
             break;
         }

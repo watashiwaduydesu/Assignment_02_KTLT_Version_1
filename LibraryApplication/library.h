@@ -15,6 +15,7 @@
 #include <QDateTime>
 #include <QDate>
 #include <QTime>
+#include <QRegExp>
 
 #include <iostream>
 #include <cstdio>

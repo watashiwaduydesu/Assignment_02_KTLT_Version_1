@@ -15,4 +15,10 @@
 #define FALSE                   1001
 #define NOT_ACCESS_FILE         1002
 
+#define REGEXP_ACCOUNT_NAME     "[A-Za-z0-9_.-]{5,}"
+#define REGEXP_PASSWORD         "\\S{5,}"
+#define REGEXP_ID               "[0-9]{5,12}"
+#define REGEXP_EMAIL            "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+#define REGEXP_TELEPHONE        "[0-9]{10,11}"
+
 #endif // DATA_DEFAULT_H
