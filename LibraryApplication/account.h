@@ -17,9 +17,8 @@ private:
     int code_of_user;
 
 public:
+    // Kiem tra account_name co ton tai trong he thong hien tai
     static int existAccountName(string account_name);
-//    void readData();
-//    void getData();
 };
 
 #endif // ACCOUNT_H

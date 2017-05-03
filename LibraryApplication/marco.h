@@ -14,6 +14,7 @@
 #define TRUE                    1000
 #define FALSE                   1001
 #define NOT_ACCESS_FILE         1002
+#define ERROR                   1003
 
 #define REGEXP_ACCOUNT_NAME     "[A-Za-z0-9_.-]{5,}"
 #define REGEXP_PASSWORD         "\\S{5,}"

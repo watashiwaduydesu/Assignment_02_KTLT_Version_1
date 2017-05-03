@@ -92,10 +92,14 @@ sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
     this->setListenEvent();
 }
 
+
+
 void sign_up_activity::setListenEvent() {
     connect(btn_send_sign_up, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_send_sign_up()));
     connect(btn_cancle, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_cancle()));
 }
+
+
 
 void sign_up_activity::onClick_btn_send_sign_up() {
     QMessageBox *message = new QMessageBox(this);
@@ -103,27 +107,34 @@ void sign_up_activity::onClick_btn_send_sign_up() {
     message->setWindowTitle("Thông báo");
 
     // KIEM TRA THONG TIN
+    string m_account_name = account_name->text().toStdString();
+    string m_password_1 = password_1->text().toStdString();
+    string m_password_2 = password_2->text().toStdString();
+    string m_id = id->text().toStdString();
+    string m_email = email->text().toStdString();
+    string m_username = username->text().toStdString();
+    string m_telephone = telephone->text().toStdString();
+
+    bool flag = false;
+
     for (;;) {
         // KIEM TRA account_name CO BI TRUNG KHONG ?
-        string s = account_name->text().toStdString();
-        if (s.size() < 5) {
+        if (m_account_name.size() < 5) {
             message->setText("Tên tài khoản tối thiêu 5 kí tự");
             break;
         }
-        if (account::existAccountName(s) == TRUE) {
+        if (account::existAccountName(m_account_name) == TRUE) {
             message->setText("Tên tài khoản đã tồn tại!\n");
             break;
         }
+
         // KIEM TRA password_1 == password_2 ?
-        string p1 = password_1->text().toStdString();
-        string p2 = password_2->text().toStdString();
-        if (p1 != p2) {
+        if (m_password_1 != m_password_2) {
             message->setText("Mật khẩu không khớp!\n");
             break;
         }
-        if (p1.size() < 5) {
-            message->setText("Mật khẩu quá yếu!\n"
-                             "Mật khẩu tối thiểu 5 kí tự");
+        if (m_password_1.size() < 5) {
+            message->setText("Mật khẩu quá yếu!\nMật khẩu tối thiểu 5 kí tự!\n");
             break;
         }
         // KIEM TRA DIA CHI email HOP LE
@@ -132,26 +143,31 @@ void sign_up_activity::onClick_btn_send_sign_up() {
             message->setText("Địa chỉ Email không hợp lệ");
             break;
         }
-        // KIEM TRA username
-        string ss = username->text().toStdString();
-        if (ss.size() == 0) {
+        // KIEM TRA username RONG
+        if (m_username.size() == 0) {
             message->setText("Tên người dùng không thể rỗng");
             break;
         }
         // KIEM TRA SO DIEN THOAI
-        string tel = telephone->text().toStdString();
-        if (tel.size() < 10) {
+        if (m_telephone.size() < 10) {
             message->setText("Số điện thoại không hợp lệ!\n");
             break;
         }
-        // KIEM TRA user CO TON TAI CHUA (username, id, email, birthdate) ?
-
-        // OK !
+        // KIEM TRA user CO TON TAI CHUA (id, email) ?
+        int exist_user = user::existUser(m_id, m_email);
+        if (exist_user == ERROR) {
+            message->setText("Số chứng minh nhân dân hoặc Địa chỉ Email đã được sử dụng!\n"
+                             "Các thông tin này là duy nhất đối với một người dùng!\n");
+            break;
+        }
+        // OK ! tat ca deu on
         message->setText("Đăng kí thành công!\n");
+        flag = true;
         break;
     }
 
     message->exec();
+
 }
 
 void sign_up_activity::onClick_btn_cancle() {

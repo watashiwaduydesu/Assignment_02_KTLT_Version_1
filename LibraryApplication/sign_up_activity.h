@@ -32,6 +32,7 @@ public slots:
 
 private:
     void setListenEvent();
+    void add_new_account(const account &a);
 };
 
 #endif // SIGN_UP_ACTIVITY_H

@@ -332,6 +332,7 @@ release\moc_sign_up_activity.cpp: ..\LibraryApplication\marco.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QRegExp \
 		..\LibraryApplication\account.h \
 		..\LibraryApplication\user.h \
 		..\LibraryApplication\sign_up_activity.h
@@ -485,6 +486,7 @@ release\moc_sign_in_activity.cpp: ..\LibraryApplication\marco.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QRegExp \
 		..\LibraryApplication\account.h \
 		..\LibraryApplication\user.h \
 		..\LibraryApplication\sign_in_activity.h
@@ -638,6 +640,7 @@ release\moc_start_activity.cpp: ..\LibraryApplication\marco.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QRegExp \
 		..\LibraryApplication\start_activity.h
 	C:\Qt\Qt5.6.2\5.6\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Assignment/LibraryApplication -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtWidgets -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtGui -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtANGLE -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtCore -I. ..\LibraryApplication\start_activity.h -o release\moc_start_activity.cpp
 
@@ -805,6 +808,7 @@ release\main.obj: ..\LibraryApplication\main.cpp ../LibraryApplication/marco.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QRegExp \
 		../LibraryApplication/start_activity.h \
 		../LibraryApplication/sign_up_activity.h \
 		../LibraryApplication/account.h \
@@ -960,6 +964,7 @@ release\sign_up_activity.obj: ..\LibraryApplication\sign_up_activity.cpp ../Libr
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QRegExp \
 		../LibraryApplication/account.h \
 		../LibraryApplication/user.h
 
@@ -1112,6 +1117,7 @@ release\sign_in_activity.obj: ..\LibraryApplication\sign_in_activity.cpp ../Libr
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QRegExp \
 		../LibraryApplication/account.h \
 		../LibraryApplication/user.h
 
@@ -1263,7 +1269,8 @@ release\start_activity.obj: ..\LibraryApplication\start_activity.cpp ../LibraryA
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QRegExp
 
 release\account.obj: ..\LibraryApplication\account.cpp ../LibraryApplication/account.h \
 		../LibraryApplication/marco.h \
@@ -1413,7 +1420,8 @@ release\account.obj: ..\LibraryApplication\account.cpp ../LibraryApplication/acc
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QRegExp
 
 release\user.obj: ..\LibraryApplication\user.cpp ../LibraryApplication/user.h \
 		../LibraryApplication/marco.h \
@@ -1563,7 +1571,8 @@ release\user.obj: ..\LibraryApplication\user.cpp ../LibraryApplication/user.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qdialog.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDate \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QRegExp
 
 release\moc_sign_up_activity.obj: release\moc_sign_up_activity.cpp 
 
