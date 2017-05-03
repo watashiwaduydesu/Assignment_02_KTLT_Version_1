@@ -112,6 +112,7 @@ void sign_up_activity::onClick_btn_send_sign_up() {
 
 
 
+
         // KIEM TRA SO DIEN THOAI
         string t = telephone->text().toStdString();
         if (t.size() < 10) {
