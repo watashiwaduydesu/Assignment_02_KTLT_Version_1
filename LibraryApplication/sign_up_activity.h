@@ -24,15 +24,20 @@ private:
     QHBoxLayout *layout_btn;
     QPushButton *btn_send_sign_up, *btn_cancle;
 
+private:
+    void reset();
+    void setListenEvent();
+
 signals:
 
 public slots:
     void onClick_btn_send_sign_up();
     void onClick_btn_cancle();
 
-private:
-    void setListenEvent();
-    void add_new_account(const account &a);
+public:
+    void closeEvent(QCloseEvent *event) {
+        this->reset();
+    }
 };
 
 #endif // SIGN_UP_ACTIVITY_H

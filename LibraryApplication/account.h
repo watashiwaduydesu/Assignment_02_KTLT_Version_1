@@ -13,12 +13,13 @@ public:
 
 private:
     string account_name, password;
-    bool active;
-    int code_of_user;
+    bool active; // true: active, false: disabled
+    int code_of_user; // ket noi voi user trong he thong
 
 public:
     // Kiem tra account_name co ton tai trong he thong hien tai
     static int existAccountName(string account_name);
+    static int signInAccount(string account_name, string password);
 };
 
 #endif // ACCOUNT_H

@@ -16,6 +16,7 @@
 #include <QDate>
 #include <QTime>
 #include <QRegExp>
+#include <QCloseEvent>
 
 #include <iostream>
 #include <cstdio>

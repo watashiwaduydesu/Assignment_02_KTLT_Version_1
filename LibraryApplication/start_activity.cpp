@@ -76,10 +76,12 @@ void start_activity::setListenEvent() {
 
 void start_activity::onClick_btn_sign_up() {
     // TAO CUA SO SIGN UP
+    window_sign_up.show();
 }
 
 void start_activity::onClick_btn_sign_in() {
     // TAO CUA SO SIGN IN
+    window_sign_in.show();
 }
 
 void start_activity::onClick_btn_quit() {

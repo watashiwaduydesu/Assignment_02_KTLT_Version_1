@@ -20,14 +20,20 @@ private:
     QHBoxLayout *layout_btn;
     QPushButton *btn_send_sign_in, *btn_cancle;
 
+private:
+    void reset();
+    void setListenEvent();
+
 signals:
 
 public slots:
     void onClick_btn_send_sign_in();
     void onClick_btn_cancle();
 
-private:
-    void setListenEvent();
+public:
+    void closeEvent(QCloseEvent *event) {
+        this->reset();
+    }
 };
 
 #endif // SIGN_IN_ACTIVITY_H

@@ -2,6 +2,7 @@
 
 sign_in_activity::sign_in_activity(QWidget *parent) : QWidget(parent)
 {
+    this->move(350, 150);
     this->setMinimumWidth(500);
     this->setFont(FONT_SIZE_NORMAL);
     this->setWindowTitle("Đăng nhập");
@@ -26,6 +27,9 @@ sign_in_activity::sign_in_activity(QWidget *parent) : QWidget(parent)
     account_name->setMaxLength(MAX_LENGTH_INPUT);
     password->setMaxLength(MAX_LENGTH_INPUT);
     password->setEchoMode(QLineEdit::Password);
+
+    account_name->setValidator(new QRegExpValidator(QRegExp(REGEXP_ACCOUNT_NAME)));
+    password->setValidator(new QRegExpValidator(QRegExp(REGEXP_PASSWORD)));
 
     form->addRow("Tên tài khoản:", account_name);
     form->addRow("Nhập mật khẩu:", password);
@@ -55,6 +59,13 @@ sign_in_activity::sign_in_activity(QWidget *parent) : QWidget(parent)
     this->setListenEvent();
 }
 
+void sign_in_activity::reset() {
+    this->hide();
+    account_name->setText("");
+    password->setText("");
+    this->move(350, 150);
+}
+
 void sign_in_activity::setListenEvent() {
     connect(btn_send_sign_in, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_send_sign_in()));
     connect(btn_cancle, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_cancle()));
@@ -64,13 +75,32 @@ void sign_in_activity::onClick_btn_send_sign_in() {
     QMessageBox *message = new QMessageBox(this);
     message->setFont(FONT_SIZE_NORMAL);
     message->setWindowTitle("Thông báo");
+    message->setContentsMargins(20, 20, 20, 20);
 
-    // CAN KIEM TRA MOT SO THONG TIN O DAY TRUOC KHI HIEN THONG BAO THANH CONG
-    message->setText("Bạn đã đăng nhập thành công!\n"
-                     "Nhấn OK để tiếp tục\n");
+    string m_account_name = account_name->text().toStdString();
+    string m_password = password->text().toStdString();
+
+    int res = account::signInAccount(m_account_name, m_password);
+    switch (res) {
+    case TRUE:
+        message->setText("Bạn đã đăng nhập thành công!\n");
+        break;
+    case WRONG_PASSWORD:
+        message->setText("Sai mật khẩu!\n");
+        break;
+    case LOCKED_ACCOUNT:
+        message->setText("Tài khoản này đã bị khóa!\n");
+        break;
+    case NOT_EXIST:
+        message->setText("Không tồn tại tài khoản này!\n");
+        break;
+    default:
+        message->setText("Lỗi hệ thống!\n");
+    }
+
     message->exec();
 }
 
 void sign_in_activity::onClick_btn_cancle() {
-    this->hide();
+    this->reset();
 }

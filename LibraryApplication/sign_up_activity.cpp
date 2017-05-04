@@ -2,6 +2,7 @@
 
 sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
 {
+    this->move(350, 100);
     this->setMinimumWidth(500);
     this->setFont(FONT_SIZE_NORMAL);
     this->setWindowTitle("Đăng kí tài khoản mới");
@@ -10,7 +11,7 @@ sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
     main_layout = new QVBoxLayout(this);
 
     // TIEU DE CHO WIDGET
-    title = new QLabel("ĐĂNG KÍ TÀI KHOẢN MỚI");
+    title = new QLabel("ĐĂNG KÍ MỚI TÀI KHOẢN NGƯỜI DÙNG");
     title->setFont(FONT_SIZE_XLARGE);
     title->setAlignment(Qt::AlignCenter);
     title->setMargin(30);
@@ -57,14 +58,17 @@ sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
     birth_date->setMaximumDate(QDate::currentDate().addYears(-16)); // toi thieu phai 16 tuoi
     birth_date->setMinimumDate(QDate::currentDate().addYears(-120)); // toi da la 120 tuoi
 
-    form->addRow("Tên tài khoản:", account_name);
-    form->addRow("Nhập mật khẩu:", password_1);
-    form->addRow("Nhập lại mật khẩu:", password_2);
-    form->addRow("Chứng minh nhân dân:", id);
+    form->addRow("A. Thông tin người dùng", new QLabel(""));
     form->addRow("Địa chỉ Email:", email);
+    form->addRow("Chứng minh nhân dân:", id);
     form->addRow("Tên người dùng:", username);
     form->addRow("Số điện thoại:", telephone);
     form->addRow("Ngày sinh:", birth_date);
+    form->addRow("", new QLabel(""));
+    form->addRow("B. Thông tin tài khoản đọc giả:", new QLabel(""));
+    form->addRow("Tên tài khoản:", account_name);
+    form->addRow("Mật khẩu:", password_1);
+    form->addRow("Xác nhận mật khẩu:", password_2);
 
     form->setHorizontalSpacing(15);
     form->setVerticalSpacing(10);
@@ -92,19 +96,28 @@ sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
     this->setListenEvent();
 }
 
-
+void sign_up_activity::reset() {
+    this->hide();
+    this->move(350, 100);
+    account_name->setText("");
+    password_1->setText("");
+    password_2->setText("");
+    id->setText("");
+    email->setText("");
+    username->setText("");
+    telephone->setText("");
+}
 
 void sign_up_activity::setListenEvent() {
     connect(btn_send_sign_up, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_send_sign_up()));
     connect(btn_cancle, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_cancle()));
 }
 
-
-
 void sign_up_activity::onClick_btn_send_sign_up() {
     QMessageBox *message = new QMessageBox(this);
     message->setFont(FONT_SIZE_NORMAL);
     message->setWindowTitle("Thông báo");
+    message->setContentsMargins(20, 20, 20, 20);
 
     // KIEM TRA THONG TIN
     string m_account_name = account_name->text().toStdString();
@@ -115,61 +128,62 @@ void sign_up_activity::onClick_btn_send_sign_up() {
     string m_username = username->text().toStdString();
     string m_telephone = telephone->text().toStdString();
 
-    bool flag = false;
-
-    for (;;) {
-        // KIEM TRA account_name CO BI TRUNG KHONG ?
-        if (m_account_name.size() < 5) {
-            message->setText("Tên tài khoản tối thiêu 5 kí tự");
-            break;
-        }
-        if (account::existAccountName(m_account_name) == TRUE) {
-            message->setText("Tên tài khoản đã tồn tại!\n");
-            break;
-        }
-
-        // KIEM TRA password_1 == password_2 ?
-        if (m_password_1 != m_password_2) {
-            message->setText("Mật khẩu không khớp!\n");
-            break;
-        }
-        if (m_password_1.size() < 5) {
-            message->setText("Mật khẩu quá yếu!\nMật khẩu tối thiểu 5 kí tự!\n");
-            break;
-        }
-        // KIEM TRA DIA CHI email HOP LE
-        QRegExp re(REGEXP_EMAIL);
-        if (!re.exactMatch(email->text())) {
-            message->setText("Địa chỉ Email không hợp lệ");
-            break;
-        }
-        // KIEM TRA username RONG
-        if (m_username.size() == 0) {
-            message->setText("Tên người dùng không thể rỗng");
-            break;
-        }
-        // KIEM TRA SO DIEN THOAI
-        if (m_telephone.size() < 10) {
-            message->setText("Số điện thoại không hợp lệ!\n");
-            break;
-        }
-        // KIEM TRA user CO TON TAI CHUA (id, email) ?
-        int exist_user = user::existUser(m_id, m_email);
-        if (exist_user == ERROR) {
-            message->setText("Số chứng minh nhân dân hoặc Địa chỉ Email đã được sử dụng!\n"
-                             "Các thông tin này là duy nhất đối với một người dùng!\n");
-            break;
-        }
-        // OK ! tat ca deu on
-        message->setText("Đăng kí thành công!\n");
-        flag = true;
+    for (;;) { // BAT DAU KIEM TRA
+    // KIEM TRA DIA CHI email HOP LE
+    QRegExp re(REGEXP_EMAIL);
+    if (!re.exactMatch(email->text())) {
+        message->setText("Địa chỉ Email không hợp lệ!\n");
         break;
     }
+    // KIEM TRA user CO TON TAI KHONG?
+    int check = user::existUser(m_email, m_id);
+    if (check == ERROR) {
+        message->setText("Email hoặc Chứng minh nhân dân này đã được dùng!\n");
+        break;
+    } else if (check == FALSE) {
+    } else {
+        message->setText("Lỗi hệ thống!\n");
+        break;
+    }
+    // KIEM TRA username RONG
+    if (m_username.size() == 0) {
+        message->setText("Tên người dùng không thể rỗng");
+        break;
+    }
+    // KIEM TRA SO DIEN THOAI
+    if (m_telephone.size() < 10) {
+        message->setText("Số điện thoại không hợp lệ!\n");
+        break;
+    }
+    // KIEM TRA account_name ?
+    if (m_account_name.size() < 5) {
+        message->setText("Tên tài khoản tối thiêu 5 kí tự");
+        break;
+    }
+    // KIEM TRA account_name CO TON TAI ?
+    if (account::existAccountName(m_account_name) == TRUE) {
+        message->setText("Tên tài khoản đã được dùng!\n");
+        break;
+    }
+    // KIEM TRA password_1 == password_2 ?
+    if (m_password_1 != m_password_2) {
+        message->setText("Mật khẩu không khớp!\n");
+        break;
+    }
+    if (m_password_1.size() < 5) {
+        message->setText("Mật khẩu quá yếu!\nMật khẩu tối thiểu 5 kí tự!\n");
+        break;
+    }
+    // OK ! tat ca deu on
+    message->setText("Đăng kí thành công!\n"
+                     "Yêu cầu của bạn sẽ được Quản lý người dùng xét duyệt!\n"
+                     "Bạn cần đến thư viện để hoàn tất việc đăng kí!");
+    break;
+    }  // KET THUC KIEM TRA
 
     message->exec();
-
 }
 
 void sign_up_activity::onClick_btn_cancle() {
-    this->hide();
+    this->reset();
 }

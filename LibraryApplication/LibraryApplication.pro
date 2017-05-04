@@ -16,7 +16,8 @@ SOURCES += main.cpp \
     sign_in_activity.cpp \
     start_activity.cpp \
     account.cpp \
-    user.cpp
+    user.cpp \
+    book.cpp
 
 HEADERS  += sign_up_activity.h \
     sign_in_activity.h \
@@ -24,4 +25,5 @@ HEADERS  += sign_up_activity.h \
     account.h \
     user.h \
     library.h \
-    marco.h
+    marco.h \
+    book.h

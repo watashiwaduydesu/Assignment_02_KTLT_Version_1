@@ -4,6 +4,9 @@
 #include "marco.h"
 #include "library.h"
 
+#include "sign_in_activity.h"
+#include "sign_up_activity.h"
+
 class start_activity : public QWidget
 {
     Q_OBJECT
@@ -16,6 +19,8 @@ private:
     QLineEdit *edt_search;
     QHBoxLayout *layout_top, *layout_search;
     QPushButton *btn_sign_up, *btn_sign_in, *btn_quit, *btn_search;
+    sign_in_activity window_sign_in;
+    sign_up_activity window_sign_up;
 
 signals:
 

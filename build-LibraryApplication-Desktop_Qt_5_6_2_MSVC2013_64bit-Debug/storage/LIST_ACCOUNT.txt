@@ -1,0 +1,6 @@
+5
+trinh_dung    dung123    1 IDU000000 1 0 0
+huu_phuc      phuc55     1 IDU000001 0 1 0
+giang_hoa     hoa435_    1 IDU000002 0 0 1
+giang-hoa     hoa_354    1 IDU000002 1 0 1
+phuc_huu      huuphuc2   0 IDU000001 1 1 1
