@@ -99,6 +99,13 @@ void sign_in_activity::onClick_btn_send_sign_in() {
     }
 
     message->exec();
+
+    if (message->close()) {
+        if (res == TRUE) {
+            this->reset();
+            account account_now = account(m_account_name);
+        }
+    }
 }
 
 void sign_in_activity::onClick_btn_cancle() {

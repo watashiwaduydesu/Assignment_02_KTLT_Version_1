@@ -10,11 +10,16 @@ class account
 {
 public:
     account();
+    account(string account_name);
 
 private:
     string account_name, password;
     bool active; // true: active, false: disabled
-    int code_of_user; // ket noi voi user trong he thong
+    string code_of_user; // ket noi voi user trong he thong
+    bool isManager, isLibrarian, isReader;
+
+public:
+    void showInformation();
 
 public:
     // Kiem tra account_name co ton tai trong he thong hien tai

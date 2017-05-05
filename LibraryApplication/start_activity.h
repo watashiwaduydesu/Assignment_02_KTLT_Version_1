@@ -31,6 +31,11 @@ public slots:
 
 private:
     void setListenEvent();
+
+public:
+    void closeEvent(QCloseEvent *event) {
+        qApp->quit();
+    }
 };
 
 #endif // START_ACTIVITY_H

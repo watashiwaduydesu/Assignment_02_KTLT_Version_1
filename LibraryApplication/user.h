@@ -11,12 +11,16 @@ class user // lop nguoi dung
 {
 public:
     user();
+    user(string code);
 
 private:
-    int code; // hinh thanh khi dang ki thanh cong
+    string code; // hinh thanh khi dang ki thanh cong
     string email, id, username, telephone;
     QDate birthdate;
-    vector<account> list_account;
+    vector<string> list_account; // chua danh sach ten account
+
+public:
+    void showInformation();
 
 public:
     // Kiem tra user moi hay da co hoac loi dua vao ID va EMAIL

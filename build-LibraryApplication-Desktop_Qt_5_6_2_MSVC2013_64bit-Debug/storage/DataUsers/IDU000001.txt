@@ -1,0 +1,9 @@
+IDU000001
+phuc@hhhh.hp
+100000
+Giang Huu Phuc
+10 04 1999
+0906000010
+2
+huu_phuc
+phuc_huu

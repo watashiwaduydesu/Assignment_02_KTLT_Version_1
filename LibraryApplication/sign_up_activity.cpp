@@ -41,6 +41,8 @@ sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
     QRegExp re; // set CU PHAP FORMAT CHO INPUT
     re.setPattern(REGEXP_ACCOUNT_NAME);
     account_name->setValidator(new QRegExpValidator(re));
+    username->setValidator(new QRegExpValidator(re));
+
     re.setPattern(REGEXP_PASSWORD);
     password_1->setValidator(new QRegExpValidator(re));
     password_2->setValidator(new QRegExpValidator(re));
@@ -52,6 +54,7 @@ sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
     email->setValidator(new QRegExpValidator(re));
     re.setPattern(REGEXP_TELEPHONE);
     telephone->setValidator(new QRegExpValidator(re));
+
 
     birth_date->setCalendarPopup(true);
     birth_date->setDisplayFormat("dd/MM/yyyy");

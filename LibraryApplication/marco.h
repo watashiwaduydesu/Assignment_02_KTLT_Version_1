@@ -17,7 +17,7 @@
 #define ERROR                   1003
 #define WRONG_PASSWORD          1004
 #define NOT_EXIST               1005
-#define LOCKED_ACCOUNT            1006
+#define LOCKED_ACCOUNT          1006
 
 #define REGEXP_ACCOUNT_NAME     "[A-Za-z0-9_.-]{5,}"
 #define REGEXP_PASSWORD         "\\S{5,}"

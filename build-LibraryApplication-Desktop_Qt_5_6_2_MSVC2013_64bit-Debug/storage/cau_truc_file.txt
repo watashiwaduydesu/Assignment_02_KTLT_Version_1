@@ -15,3 +15,13 @@ FILE: LIST_USER:
 ...
 N+1. ...
 
+FILE IDU000000:
+
+1. code email id 
+2. username 
+3. day month year 
+4. telephone
+5. n : number account
+6. account name 1
+7. ...
+5+n. account name n
