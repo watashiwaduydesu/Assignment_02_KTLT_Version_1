@@ -29,7 +29,6 @@ start_activity::start_activity(QWidget *parent) : QWidget(parent)
     title->setFont(FONT_SIZE_XLARGE);
     title->setAlignment(Qt::AlignCenter);
     title->setMargin(30);
-    title->setStyleSheet("font-weight: bold");
     main_layout->addWidget(title);
 
     // text 1

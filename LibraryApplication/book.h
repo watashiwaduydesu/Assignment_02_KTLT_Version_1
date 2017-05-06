@@ -4,6 +4,8 @@
 #include "marco.h"
 #include "library.h"
 
+using namespace std;
+
 class book
 {
 public:

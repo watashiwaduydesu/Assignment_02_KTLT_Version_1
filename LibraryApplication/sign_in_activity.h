@@ -31,7 +31,7 @@ public slots:
     void onClick_btn_cancle();
 
 public:
-    void closeEvent(QCloseEvent *event) {
+    void closeEvent(QCloseEvent *) {
         this->reset();
     }
 };

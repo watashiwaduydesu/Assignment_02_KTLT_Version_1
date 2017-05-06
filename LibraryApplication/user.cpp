@@ -44,7 +44,6 @@ void user::showInformation() {
 int user::existUser(string email, string id) {
     ifstream fi;
     fi.open("storage/LIST_USER.txt");
-    cout << "1\n";
     if (! fi.is_open()) return NOT_ACCESS_FILE;
     int n = 0;
     string line;

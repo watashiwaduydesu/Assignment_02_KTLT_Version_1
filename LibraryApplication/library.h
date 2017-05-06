@@ -2,10 +2,14 @@
 #define LIBRARY_H
 
 #include <QApplication>
+#include <QMainWindow>
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QFormLayout>
+#include <QMenuBar>
+#include <QMenu>
+#include <QToolBar>
 #include <QString>
 #include <QPushButton>
 #include <QLineEdit>
@@ -17,6 +21,7 @@
 #include <QTime>
 #include <QRegExp>
 #include <QCloseEvent>
+#include <QAction>
 
 #include <iostream>
 #include <cstdio>

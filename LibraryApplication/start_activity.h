@@ -33,7 +33,7 @@ private:
     void setListenEvent();
 
 public:
-    void closeEvent(QCloseEvent *event) {
+    void closeEvent(QCloseEvent *) {
         qApp->quit();
     }
 };

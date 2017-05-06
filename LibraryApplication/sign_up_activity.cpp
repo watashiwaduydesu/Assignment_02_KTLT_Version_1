@@ -15,7 +15,6 @@ sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
     title->setFont(FONT_SIZE_XLARGE);
     title->setAlignment(Qt::AlignCenter);
     title->setMargin(30);
-    title->setStyleSheet("font-weight: bold");
     main_layout->addWidget(title);
 
     // LAYOUT FORM DANG KI
@@ -41,8 +40,8 @@ sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
     QRegExp re; // set CU PHAP FORMAT CHO INPUT
     re.setPattern(REGEXP_ACCOUNT_NAME);
     account_name->setValidator(new QRegExpValidator(re));
+    re.setPattern(REGEXP_USERNAME);
     username->setValidator(new QRegExpValidator(re));
-
     re.setPattern(REGEXP_PASSWORD);
     password_1->setValidator(new QRegExpValidator(re));
     password_2->setValidator(new QRegExpValidator(re));
@@ -54,7 +53,6 @@ sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
     email->setValidator(new QRegExpValidator(re));
     re.setPattern(REGEXP_TELEPHONE);
     telephone->setValidator(new QRegExpValidator(re));
-
 
     birth_date->setCalendarPopup(true);
     birth_date->setDisplayFormat("dd/MM/yyyy");
@@ -131,6 +129,7 @@ void sign_up_activity::onClick_btn_send_sign_up() {
     string m_username = username->text().toStdString();
     string m_telephone = telephone->text().toStdString();
 
+    bool success = false;
     for (;;) { // BAT DAU KIEM TRA
     // KIEM TRA DIA CHI email HOP LE
     QRegExp re(REGEXP_EMAIL);
@@ -149,8 +148,12 @@ void sign_up_activity::onClick_btn_send_sign_up() {
         break;
     }
     // KIEM TRA username RONG
-    if (m_username.size() == 0) {
-        message->setText("Tên người dùng không thể rỗng");
+    re.setPattern(REGEXP_USERNAME);
+    if (re.exactMatch(username->text()) == false) {
+        message->setText("Tên người dùng:\n"
+                         "    + là chữ việt không dấu\n"
+                         "    + phải có họ và tên\n"
+                         "    + không kết thúc bằng khoảng trắng\n");
         break;
     }
     // KIEM TRA SO DIEN THOAI
@@ -174,17 +177,25 @@ void sign_up_activity::onClick_btn_send_sign_up() {
         break;
     }
     if (m_password_1.size() < 5) {
-        message->setText("Mật khẩu quá yếu!\nMật khẩu tối thiểu 5 kí tự!\n");
+        message->setText("Mật khẩu quá yếu!\n"
+                         "Mật khẩu tối thiểu 5 kí tự!\n");
         break;
     }
     // OK ! tat ca deu on
     message->setText("Đăng kí thành công!\n"
                      "Yêu cầu của bạn sẽ được Quản lý người dùng xét duyệt!\n"
                      "Bạn cần đến thư viện để hoàn tất việc đăng kí!");
+    success = true;
     break;
     }  // KET THUC KIEM TRA
 
     message->exec();
+
+    if (message->close()) {
+        if (success) {
+            this->reset();
+        }
+    }
 }
 
 void sign_up_activity::onClick_btn_cancle() {
