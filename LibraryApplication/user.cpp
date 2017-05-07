@@ -55,7 +55,11 @@ int user::existUser(string email, string id) {
         stream.clear(); stream.str(line);
         string m_code, m_id, m_email;
         stream >> m_code >> m_email >> m_id;
-        if (m_id == id || m_email == email) return ERROR;
+        if (m_id == id || m_email == email) {
+            fi.close();
+            return ERROR;
+        }
     }
+    fi.close();
     return FALSE;
 }

@@ -15,6 +15,7 @@ public:
     explicit sign_up_activity(QWidget *parent = 0);
 
 private:
+    void setUI();
     QVBoxLayout *main_layout;
     QLabel *title;
     QFormLayout *form;
@@ -27,17 +28,16 @@ private:
 private:
     void reset();
     void setListenEvent();
+    int storageRequireUser();
 
 signals:
 
 public slots:
     void onClick_btn_send_sign_up();
-    void onClick_btn_cancle();
+    void onClick_btn_cancle() {this->reset();}
 
 public:
-    void closeEvent(QCloseEvent *) {
-        this->reset();
-    }
+    void closeEvent(QCloseEvent *) {this->reset();}
 };
 
 #endif // SIGN_UP_ACTIVITY_H

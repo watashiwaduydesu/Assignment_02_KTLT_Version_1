@@ -1,6 +1,14 @@
 #include "sign_up_activity.h"
 
+using namespace std;
+
 sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
+{
+    this->setUI();
+    this->setListenEvent();
+}
+
+void sign_up_activity::setUI()
 {
     this->move(350, 100);
     this->setMinimumWidth(500);
@@ -92,9 +100,6 @@ sign_up_activity::sign_up_activity(QWidget *parent) : QWidget(parent)
     // SET LAYOUT CHO WIDGET
     main_layout->addStretch(1);
     this->setLayout(main_layout);
-
-    // ADD connect SIGNAL va SLOT cho WIDGET
-    this->setListenEvent();
 }
 
 void sign_up_activity::reset() {
@@ -114,7 +119,8 @@ void sign_up_activity::setListenEvent() {
     connect(btn_cancle, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_cancle()));
 }
 
-void sign_up_activity::onClick_btn_send_sign_up() {
+void sign_up_activity::onClick_btn_send_sign_up()
+{
     QMessageBox *message = new QMessageBox(this);
     message->setFont(FONT_SIZE_NORMAL);
     message->setWindowTitle("Thông báo");
@@ -135,6 +141,11 @@ void sign_up_activity::onClick_btn_send_sign_up() {
     QRegExp re(REGEXP_EMAIL);
     if (!re.exactMatch(email->text())) {
         message->setText("Địa chỉ Email không hợp lệ!\n");
+        break;
+    }
+    // KIEM TRA cmnd CO THOA ?
+    if (id->text().toStdString().size() < 10) {
+        message->setText("Số CMND ít nhất 10 số\n");
         break;
     }
     // KIEM TRA user CO TON TAI KHONG?
@@ -181,6 +192,11 @@ void sign_up_activity::onClick_btn_send_sign_up() {
                          "Mật khẩu tối thiểu 5 kí tự!\n");
         break;
     }
+    // THU LUU DU LIEU XUONG HE THONG ?
+    if (this->storageRequireUser() == NOT_ACCESS_FILE) {
+        message->setText("Lỗi hệ thống!\n");
+        break;
+    }
     // OK ! tat ca deu on
     message->setText("Đăng kí thành công!\n"
                      "Yêu cầu của bạn sẽ được Quản lý người dùng xét duyệt!\n"
@@ -198,6 +214,15 @@ void sign_up_activity::onClick_btn_send_sign_up() {
     }
 }
 
-void sign_up_activity::onClick_btn_cancle() {
-    this->reset();
+int sign_up_activity::storageRequireUser() {
+    ofstream fo;
+    fo.open("storage/REQUIREMENT_USER.txt");
+    if (!fo.is_open()) return NOT_ACCESS_FILE;
+    fo.seekp(0, ios::end); // di den cuoi file
+    fo << email->text().toStdString() << " " << id->text().toStdString() << endl;
+    fo << username->text().toStdString() << endl;
+    fo << birth_date->date().day() << " " << birth_date->date().month() << " " << birth_date->date().year() << endl;
+    fo << telephone->text().toStdString() << endl;
+    fo.close();
+    return TRUE;
 }
