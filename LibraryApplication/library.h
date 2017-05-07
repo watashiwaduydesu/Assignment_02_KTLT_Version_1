@@ -2,6 +2,7 @@
 #define LIBRARY_H
 
 #include <QApplication>
+#include <QObject>
 #include <QMainWindow>
 #include <QWidget>
 #include <QHBoxLayout>

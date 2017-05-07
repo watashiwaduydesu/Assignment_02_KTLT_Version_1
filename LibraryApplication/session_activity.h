@@ -3,12 +3,16 @@
 
 #include "marco.h"
 #include "library.h"
+#include "account.h"
 
 class session_activity : public QWidget // PHIEN LAM VIEC CUA NGUOI DUNG
 {
     Q_OBJECT
 public:
-    explicit session_activity(QWidget *parent = 0);
+    explicit session_activity(account *account_sign_in, QWidget *parent = 0);
+
+private:
+    account *account_c;
 
 private:
     QVBoxLayout *main_layout;
@@ -32,9 +36,9 @@ private:
     QLineEdit *medt_search_user, *medt_search_account;
     QPushButton *mbtn_search_user, *mbtn_search_account, *mbtn_solve_requirement;
 
-    // MENU LIBRABRIAN
+    // MENU LIBRABRIAN ------
 
-private:
+
     void addMenuTop();
     void addFunctionReader();
     void addFunctionManager();
@@ -43,6 +47,9 @@ private:
 signals:
 
 public slots:
+
+public:
+    void closeEvent(QCloseEvent *) {qApp->quit();}
 };
 
 #endif // SESSION_ACTIVITY_H

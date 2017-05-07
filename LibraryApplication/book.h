@@ -16,6 +16,14 @@ private:
     string name, author, description;
     int year; // nam xuat ban
     int remain_number; // so luong sach con trong thu vien
+
+public:
+    string getCode() {return code;}
+    string getName() {return name;}
+    string getAuthor() {return author;}
+    string getDescription() {return description;}
+    int getYear() {return year;}
+    int getRemain() {return remain_number;}
 };
 
 #endif // BOOK_H

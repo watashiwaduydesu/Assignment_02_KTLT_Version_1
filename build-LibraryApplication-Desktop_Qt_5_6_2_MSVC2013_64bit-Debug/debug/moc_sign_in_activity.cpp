@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_sign_in_activity_t {
-    QByteArrayData data[4];
-    char stringdata0[62];
+    QByteArrayData data[5];
+    char stringdata0[76];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,13 +30,14 @@ struct qt_meta_stringdata_sign_in_activity_t {
 static const qt_meta_stringdata_sign_in_activity_t qt_meta_stringdata_sign_in_activity = {
     {
 QT_MOC_LITERAL(0, 0, 16), // "sign_in_activity"
-QT_MOC_LITERAL(1, 17, 24), // "onClick_btn_send_sign_in"
-QT_MOC_LITERAL(2, 42, 0), // ""
-QT_MOC_LITERAL(3, 43, 18) // "onClick_btn_cancle"
+QT_MOC_LITERAL(1, 17, 13), // "signInSucceed"
+QT_MOC_LITERAL(2, 31, 0), // ""
+QT_MOC_LITERAL(3, 32, 24), // "onClick_btn_send_sign_in"
+QT_MOC_LITERAL(4, 57, 18) // "onClick_btn_cancle"
 
     },
-    "sign_in_activity\0onClick_btn_send_sign_in\0"
-    "\0onClick_btn_cancle"
+    "sign_in_activity\0signInSucceed\0\0"
+    "onClick_btn_send_sign_in\0onClick_btn_cancle"
 };
 #undef QT_MOC_LITERAL
 
@@ -46,16 +47,22 @@ static const uint qt_meta_data_sign_in_activity[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    0,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   24,    2, 0x0a /* Public */,
-       3,    0,   25,    2, 0x0a /* Public */,
+       3,    0,   30,    2, 0x0a /* Public */,
+       4,    0,   31,    2, 0x0a /* Public */,
+
+ // signals: parameters
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
@@ -70,9 +77,20 @@ void sign_in_activity::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         sign_in_activity *_t = static_cast<sign_in_activity *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->onClick_btn_send_sign_in(); break;
-        case 1: _t->onClick_btn_cancle(); break;
+        case 0: _t->signInSucceed(); break;
+        case 1: _t->onClick_btn_send_sign_in(); break;
+        case 2: _t->onClick_btn_cancle(); break;
         default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        void **func = reinterpret_cast<void **>(_a[1]);
+        {
+            typedef void (sign_in_activity::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&sign_in_activity::signInSucceed)) {
+                *result = 0;
+                return;
+            }
         }
     }
     Q_UNUSED(_a);
@@ -103,14 +121,20 @@ int sign_in_activity::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
+}
+
+// SIGNAL 0
+void sign_in_activity::signInSucceed()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

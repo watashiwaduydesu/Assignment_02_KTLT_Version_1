@@ -2,6 +2,63 @@
 
 sign_in_activity::sign_in_activity(QWidget *parent) : QWidget(parent)
 {
+    this->setUI();
+    this->setListenEvent();
+}
+
+void sign_in_activity::reset() {
+    this->hide();
+    account_name->setText("");
+    password->setText("");
+    this->move(350, 150);
+}
+
+void sign_in_activity::setListenEvent() {
+    connect(btn_send_sign_in, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_send_sign_in()));
+    connect(btn_cancle, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_cancle()));
+}
+
+void sign_in_activity::onClick_btn_send_sign_in()
+{
+    QMessageBox *message = new QMessageBox(this);
+    message->setFont(FONT_SIZE_NORMAL);
+    message->setWindowTitle("Thông báo");
+    message->setContentsMargins(20, 20, 20, 20);
+
+    string m_account_name = account_name->text().toStdString();
+    string m_password = password->text().toStdString();
+
+    int res = account::signInAccount(m_account_name, m_password);
+    switch (res) {
+    case TRUE:
+        message->setText("Bạn đã đăng nhập thành công!\n");
+        break;
+    case WRONG_PASSWORD:
+        message->setText("Sai mật khẩu!\n");
+        break;
+    case LOCKED_ACCOUNT:
+        message->setText("Tài khoản này đã bị khóa!\n");
+        break;
+    case NOT_EXIST:
+        message->setText("Không tồn tại tài khoản này!\n");
+        break;
+    default:
+        message->setText("Lỗi hệ thống!\n");
+    }
+
+    message->exec();
+
+    if (message->close()) {
+        if (res == TRUE) {
+            this->reset();
+            this->account_c = new account(m_account_name);
+            emit signInSucceed();
+        }
+    }
+}
+
+void sign_in_activity::setUI()
+{
     this->move(350, 150);
     this->setMinimumWidth(500);
     this->setFont(FONT_SIZE_NORMAL);
@@ -55,58 +112,4 @@ sign_in_activity::sign_in_activity(QWidget *parent) : QWidget(parent)
     // set layout cho widget
     main_layout->addStretch(1);
     this->setLayout(main_layout);
-    this->setListenEvent();
-}
-
-void sign_in_activity::reset() {
-    this->hide();
-    account_name->setText("");
-    password->setText("");
-    this->move(350, 150);
-}
-
-void sign_in_activity::setListenEvent() {
-    connect(btn_send_sign_in, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_send_sign_in()));
-    connect(btn_cancle, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_cancle()));
-}
-
-void sign_in_activity::onClick_btn_send_sign_in() {
-    QMessageBox *message = new QMessageBox(this);
-    message->setFont(FONT_SIZE_NORMAL);
-    message->setWindowTitle("Thông báo");
-    message->setContentsMargins(20, 20, 20, 20);
-
-    string m_account_name = account_name->text().toStdString();
-    string m_password = password->text().toStdString();
-
-    int res = account::signInAccount(m_account_name, m_password);
-    switch (res) {
-    case TRUE:
-        message->setText("Bạn đã đăng nhập thành công!\n");
-        break;
-    case WRONG_PASSWORD:
-        message->setText("Sai mật khẩu!\n");
-        break;
-    case LOCKED_ACCOUNT:
-        message->setText("Tài khoản này đã bị khóa!\n");
-        break;
-    case NOT_EXIST:
-        message->setText("Không tồn tại tài khoản này!\n");
-        break;
-    default:
-        message->setText("Lỗi hệ thống!\n");
-    }
-
-    message->exec();
-
-    if (message->close()) {
-        if (res == TRUE) {
-            this->reset();
-            account account_now = account(m_account_name);
-        }
-    }
-}
-
-void sign_in_activity::onClick_btn_cancle() {
-    this->reset();
 }

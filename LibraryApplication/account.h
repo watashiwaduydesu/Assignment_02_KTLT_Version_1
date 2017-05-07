@@ -16,9 +16,16 @@ private:
     string account_name, password;
     bool active; // true: active, false: disabled
     string code_of_user; // ket noi voi user trong he thong
-    bool isManager, isLibrarian, isReader;
+    bool is_manager, is_librarian, is_reader;
 
 public:
+    string getName() {return account_name;}
+    string getPassword() {return password;}
+    string getCode() {return code_of_user;}
+    bool isActive() {return active;}
+    bool isManager() {return is_manager;}
+    bool isLibrarian() {return is_librarian;}
+    bool isReader() {return is_reader;}
     void showInformation();
 
 public:

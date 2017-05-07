@@ -20,6 +20,13 @@ private:
     vector<string> list_account; // chua danh sach ten account
 
 public:
+    string getCode() {return code;}
+    string getEmail() {return email;}
+    string getId() {return id;}
+    string getName() {return username;}
+    string getTel() {return telephone;}
+    QDate getBirth() {return birthdate;}
+    vector<string> getAccounts() {return list_account;}
     void showInformation();
 
 public:

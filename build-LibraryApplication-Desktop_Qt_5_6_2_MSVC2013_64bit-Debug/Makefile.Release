@@ -694,6 +694,7 @@ release\moc_start_activity.cpp: ..\LibraryApplication\marco.h \
 		..\LibraryApplication\account.h \
 		..\LibraryApplication\user.h \
 		..\LibraryApplication\sign_up_activity.h \
+		..\LibraryApplication\session_activity.h \
 		..\LibraryApplication\start_activity.h
 	C:\Qt\Qt5.6.2\5.6\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Assignment/LibraryApplication -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtWidgets -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtGui -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtANGLE -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtCore -I. ..\LibraryApplication\start_activity.h -o release\moc_start_activity.cpp
 
@@ -859,6 +860,7 @@ release\moc_session_activity.cpp: ..\LibraryApplication\marco.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QRegExp \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\QCloseEvent \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QAction \
+		..\LibraryApplication\account.h \
 		..\LibraryApplication\session_activity.h
 	C:\Qt\Qt5.6.2\5.6\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Assignment/LibraryApplication -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtWidgets -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtGui -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtANGLE -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtCore -I. ..\LibraryApplication\session_activity.h -o release\moc_session_activity.cpp
 
@@ -1545,7 +1547,8 @@ release\start_activity.obj: ..\LibraryApplication\start_activity.cpp ../LibraryA
 		../LibraryApplication/sign_in_activity.h \
 		../LibraryApplication/account.h \
 		../LibraryApplication/user.h \
-		../LibraryApplication/sign_up_activity.h
+		../LibraryApplication/sign_up_activity.h \
+		../LibraryApplication/session_activity.h
 
 release\account.obj: ..\LibraryApplication\account.cpp ../LibraryApplication/account.h \
 		../LibraryApplication/marco.h \
@@ -2202,7 +2205,8 @@ release\session_activity.obj: ..\LibraryApplication\session_activity.cpp ../Libr
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTime \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QRegExp \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\QCloseEvent \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QAction
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QAction \
+		../LibraryApplication/account.h
 
 release\moc_sign_up_activity.obj: release\moc_sign_up_activity.cpp 
 

@@ -1,6 +1,7 @@
 #include "session_activity.h"
 
-session_activity::session_activity(QWidget *parent) : QWidget(parent)
+session_activity::session_activity(account *account_sign_in, QWidget *parent)
+    : account_c(account_sign_in), QWidget(parent)
 {
     this->setFont(FONT_SIZE_NORMAL);
     this->setMinimumSize(1000, 500);

@@ -20,7 +20,7 @@ account::account(string account_name) : account() {
             if (name == account_name) {
                 this->account_name = name;
                 stream >> this->password >> this->active >> this->code_of_user;
-                stream >> this->isManager >> this->isLibrarian >> this->isReader;
+                stream >> this->is_manager >> this->is_librarian >> this->is_reader;
                 break;
             }
         }
@@ -31,7 +31,7 @@ account::account(string account_name) : account() {
 void account::showInformation() {
     cout << "---------------ACCOUNT------------\n";
     cout << this->account_name << "/" << this->code_of_user << "/" << this->active;
-    cout << this->isManager << this->isLibrarian << this->isReader << endl;
+    cout << this->is_manager << this->is_librarian << this->is_reader << endl;
 }
 
 int account::existAccountName(string account_name) {

@@ -2,6 +2,14 @@
 
 start_activity::start_activity(QWidget *parent) : QWidget(parent)
 {
+    this->setUI();
+    window_sign_up = new sign_up_activity();
+    window_sign_in = new sign_in_activity();
+    this->setListenEvent();
+}
+
+void start_activity::setUI()
+{
     this->setMinimumSize(600, 400);
     this->setFont(FONT_SIZE_NORMAL);
     this->setWindowTitle("Chương trình quản lí thư viện");
@@ -64,25 +72,18 @@ start_activity::start_activity(QWidget *parent) : QWidget(parent)
     // set layout cho widget
     main_layout->addStretch(1);
     this->setLayout(main_layout);
-    this->setListenEvent();
 }
 
 void start_activity::setListenEvent() {
     connect(btn_sign_up, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_sign_up()));
     connect(btn_sign_in, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_sign_in()));
     connect(btn_quit, SIGNAL(clicked(bool)), this, SLOT(onClick_btn_quit()));
+    connect(window_sign_in, SIGNAL(signInSucceed()), this, SLOT(open_window_session()));
 }
 
-void start_activity::onClick_btn_sign_up() {
-    // TAO CUA SO SIGN UP
-    window_sign_up.show();
-}
-
-void start_activity::onClick_btn_sign_in() {
-    // TAO CUA SO SIGN IN
-    window_sign_in.show();
-}
-
-void start_activity::onClick_btn_quit() {
-    qApp->quit();
+void start_activity::open_window_session() {
+    this->account_c = window_sign_in->getAccount();
+    window_session = new session_activity(account_c);
+    window_session->show();
+    this->hide();
 }
