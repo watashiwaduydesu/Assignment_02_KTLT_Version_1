@@ -216,13 +216,15 @@ void sign_up_activity::onClick_btn_send_sign_up()
 
 int sign_up_activity::storageRequireUser() {
     ofstream fo;
-    fo.open("storage/REQUIREMENT_USER.txt");
+    fo.open("storage/REQUIREMENT_USER.txt", ios::app); // append file (ghi tiep vao file)
     if (!fo.is_open()) return NOT_ACCESS_FILE;
-    fo.seekp(0, ios::end); // di den cuoi file
     fo << email->text().toStdString() << " " << id->text().toStdString() << endl;
     fo << username->text().toStdString() << endl;
     fo << birth_date->date().day() << " " << birth_date->date().month() << " " << birth_date->date().year() << endl;
     fo << telephone->text().toStdString() << endl;
+    fo << account_name->text().toStdString() << endl;
+    int hash_pass = hash_password::hashKey(password_1->text().toStdString());
+    fo << hash_pass << endl;
     fo.close();
     return TRUE;
 }

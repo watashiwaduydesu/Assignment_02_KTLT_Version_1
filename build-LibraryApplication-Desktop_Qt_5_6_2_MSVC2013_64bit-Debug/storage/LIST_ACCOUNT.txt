@@ -1,6 +1,12 @@
-5
-trinh_dung    dung123    1 IDU000000 1 0 0
-huu_phuc      phuc55     1 IDU000001 0 1 0
-giang_hoa     hoa435_    1 IDU000002 0 0 1
-giang-hoa     hoa_354    1 IDU000002 1 0 1
-phuc_huu      huuphuc2   0 IDU000001 1 1 1
+11
+toanpp 123112 0 IDU898111 1 0 1
+dfa_sd.h1 512412 1 IDU387241 0 1 1
+giankho 643620319 0 IDU6771775350 1 1 0
+truongtt 12312 1 IDU111111 1 1 1
+phunggh 12412 1 IDU13241 0 1 1
+bachasa 12312 1 IDU676571 1 1 0
+tieutung 86419364 1 IDU000000 1 0 0
+huu_phuc 34123 1 IDU000001 0 1 0
+giang_hoa 4132 1 IDU000002 0 0 1
+giang-hoa 135123 1 IDU000002 1 0 1
+phuc_huu 1234123 0 IDU000001 1 1 1

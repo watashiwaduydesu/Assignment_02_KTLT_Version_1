@@ -6,14 +6,16 @@
 #include "sign_up_activity.h"
 #include "session_activity.h"
 
+#include "account.h"
+
 using namespace std;
 
 int main(int argc, char *argv[])
 {
     QApplication application(argc, argv);
 
-    start_activity *window_start = new start_activity();
-    window_start->show();
+    start_activity window_start;
+    window_start.show();
 
     return application.exec();
 }
