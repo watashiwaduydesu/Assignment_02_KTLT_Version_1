@@ -13,6 +13,10 @@ public:
     user();
     user(string code);
 
+    bool operator < (const user &o) {
+        return code < o.getCode();
+    }
+
 private:
     string code; // hinh thanh khi dang ki thanh cong
     string email, id, username, telephone;
@@ -20,7 +24,7 @@ private:
     vector<string> list_account; // chua danh sach ten account
 
 public:
-    string getCode() {return code;}
+    string getCode() const {return code;}
     string getEmail() {return email;}
     string getId() {return id;}
     string getName() {return username;}

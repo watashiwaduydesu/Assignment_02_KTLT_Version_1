@@ -14,6 +14,10 @@ public:
     account(string account_name);
     account(string name, int pass, bool act, bool manager, bool librarian, bool reader, string code = "");
 
+    bool operator < (const account &o) const {
+        return account_name < o.getName();
+    }
+
 private:
     string account_name;
     int password;
@@ -22,7 +26,7 @@ private:
     bool is_manager, is_librarian, is_reader;
 
 public:
-    string getName() {return account_name;}
+    string getName() const {return account_name;}
     string getCode() {return code_of_user;}
     int getPassword() {return password;}
     bool isActive() {return active;}

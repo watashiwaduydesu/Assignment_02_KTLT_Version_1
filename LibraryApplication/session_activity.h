@@ -4,6 +4,8 @@
 #include "marco.h"
 #include "library.h"
 #include "account.h"
+#include "book.h"
+#include "user.h"
 
 class session_activity : public QWidget // PHIEN LAM VIEC CUA NGUOI DUNG
 {
@@ -13,6 +15,18 @@ public:
 
 private:
     account *account_c;
+
+    set<account> list_account, list_require_account;
+    set<book> list_book, list_require_book;
+    set<user> list_user, list_require_user;
+
+    int loadData();
+    int loadData_list_account();
+    int loadData_list_require_account();
+    int loadData_list_book();
+    int loadData_list_require_book();
+    int loadData_list_user();
+    int loadData_list_require_user();
 
 private:
     QVBoxLayout *main_layout;
@@ -37,7 +51,6 @@ private:
     QPushButton *mbtn_search_user, *mbtn_search_account, *mbtn_solve_requirement;
 
     // MENU LIBRABRIAN ------
-
 
     void addMenuTop();
     void addFunctionReader();

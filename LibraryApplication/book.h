@@ -11,6 +11,10 @@ class book
 public:
     book();
 
+    bool operator < (const book &o) const {
+        return code < o.getCode();
+    }
+
 private:
     string code; // he thong tu dong tao
     string name, author, description;
@@ -18,7 +22,7 @@ private:
     int remain_number; // so luong sach con trong thu vien
 
 public:
-    string getCode() {return code;}
+    string getCode() const {return code;}
     string getName() {return name;}
     string getAuthor() {return author;}
     string getDescription() {return description;}

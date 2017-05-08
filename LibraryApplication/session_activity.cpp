@@ -16,6 +16,8 @@ session_activity::session_activity(account *account_sign_in, QWidget *parent)
 
     main_layout->addStretch(1);
     this->setLayout(main_layout);
+
+    this->loadData();
 }
 
 void session_activity::addMenuTop()
@@ -118,4 +120,59 @@ void session_activity::addFunctionManager()
 void session_activity::addFunctionLibrarian()
 {
 
+}
+
+int session_activity::loadData() {
+    if (account_c->isManager()) {
+        if (loadData_list_account() != TRUE) return ERROR;
+        if (loadData_list_require_account() != TRUE) return ERROR;
+        if (loadData_list_user() != TRUE) return ERROR;
+        if (loadData_list_require_user() != TRUE) return ERROR;
+    }
+    if (account_c->isReader() || account_c->isLibrarian()) {
+        if (loadData_list_book() != TRUE) return ERROR;
+        if (account_c->isLibrarian()) {
+            if (loadData_list_require_book() != TRUE) return ERROR;
+        }
+    }
+    return TRUE;
+}
+
+int session_activity::loadData_list_account() {
+    ifstream f;
+    f.open("storage/LIST_ACCOUNT.txt", ios::in);
+    if (! f.is_open()) return NOT_ACCESS_FILE;
+
+    int n = 0;
+    string line, name, code;
+    int pass, act, manager, librarian, reader;
+    stringstream stream;
+    getline(f, line); stream.clear(); stream.str(line);
+    stream >> n;
+    for (int i=1;i<=n;i++) {
+        getline(f, line); stream.clear(); stream.str(line);
+        stream >> name >> pass >> act >> code >> manager >> librarian >> reader;
+        account t(name, pass, act, manager, librarian, reader, code);
+        list_account.insert(t);
+    }
+    f.close();
+    return TRUE;
+}
+
+int session_activity::loadData_list_require_account() {
+    return TRUE;
+}
+
+int session_activity::loadData_list_user() {
+    return TRUE;
+}
+int session_activity::loadData_list_require_user() {
+    return TRUE;
+}
+
+int session_activity::loadData_list_book() {
+    return TRUE;
+}
+int session_activity::loadData_list_require_book() {
+    return TRUE;
 }
