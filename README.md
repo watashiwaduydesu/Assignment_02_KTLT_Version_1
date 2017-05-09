@@ -1,74 +1,13 @@
-# Assignment 02 - Kỹ thuật lập trình
+# Assignment 2 Kỹ thuật lập trình
+## Chương trình mô phỏng thư viện
 
-+ Sử dụng QT Creator để thực hiện project
-+ Một số kiến thức QT cơ bản : 
-https://github.com/huynhsamha/Assignment_02_KTLT 
+### Tổ chức dữ liệu: 
+https://github.com/huynhsamha/Assignment_02_KTLT_Version_1/wiki/T%E1%BB%95-ch%E1%BB%A9c-d%E1%BB%AF-li%E1%BB%87u
 
-## Một số khái niệm
+### Tổ chức File lưu trữ:
+https://github.com/huynhsamha/Assignment_02_KTLT_Version_1/wiki/T%E1%BB%95-ch%E1%BB%A9c-File-l%C6%B0u-tr%E1%BB%AF
 
-** Phiên làm việc: SESSION_ACTIVITY **
-+ Khi người dùng đăng nhập bằng 1 tài khoản thành công (đúng account_name và password), một phiên làm việc được mở ra.
-+ Một phiên làm việc gắn liền với một tài khoản account.
-+ Một tài khoản account có thể giữ 1 trong 3 vai trò.
-+ Mở đầu phiên làm việc sẽ load dữ liệu từ file.
-+ Kết thúc phiên làm việc sẽ lưu dữ liệu xuống file.
-+ Tùy vào các role của account, sẽ load các dữ liệu cần thiết.
-
-+ Nếu account có role là manager:
-++ Load dữ liệu account từ file LIST_ACCOUNT.txt
-++ Load dữ liệu user từ file LIST_USER.txt và DataUser/...
-++ Load dữ liệu require account và require user từ file REQUIREMENT_ACCOUT.txt và REQUIREMENT_USER.txt
-
-+ Nếu account có role là librarian:
-
-+ Nếu account có role là reader:
-
-
-## Cấu trúc file:
-
-+ 		storage/
-+			LIST_USER.txt 
-+			LIST_ACCOUNT.txt
-+			REQUIREMENT_ACCOUNT.txt
-+			REQUIREMENT_USER.txt
-+			/DataUsers/
-+				<Mã code>.txt (IDU000000.txt)
-+			/DataBooks/
-+				<Mã code>.txt (IDB000000.txt)
-
-				
-**LIST_ACCOUNT.txt**
-+ 		N
-+ 		account_name hash_password active code is_manager is_librarian is_reader
-+ 		...
-
-
-**LIST_USER.txt**
-+ 		N
-+ 		code email id
-+ 		...
-
-
-**IDU000000.txt**
-+ 		code 
-+ 		email 
-+ 		id 
-+ 		username 
-+ 		day month year 
-+ 		telephone
-+		n : number account
-+ 		account name 1
-+ 		...
-
-
-**REQUIREMENT_USER.txt**
-+		email id 
-+		username 
-+		day month year 
-+		telephone
-+		account_name
-+		password
-+		...
-
-
-**REQUIREMENT_ACCOUNT.txt**
++ Có hai phiên bản:
+	+ Phiên bản chính (chưa có giao diện) là LibApplcation (version 2, đang làm trên cái này)
+	+ Phiên bản cũ (có một số giao diện) là LibraryApplicaion (version 1, không làm trên cái này nữa, chỉ dùng để thêm giao diện sau khi version 2 làm xong!)
+	+ Các file khác là lưu trữ các quy định trong lúc lập trình để thống nhất.
