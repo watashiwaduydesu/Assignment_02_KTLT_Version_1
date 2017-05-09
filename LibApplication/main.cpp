@@ -1,6 +1,7 @@
 #include <QApplication>
 #include "start_activity.h"
 
+#include "external.h"
 #include "data.h"
 
 using namespace std;
@@ -11,15 +12,15 @@ int main(int argc, char *argv[])
     start_activity w;
     w.show();
 
-    data::loadData();
+//    data::loadData();
 
-    cout << data::l_account.size() << endl;
-    for (account t : data::l_account) {
-        t.showInfomation();
-    }
-    cout << data::l_admin.size() << endl;
+//    cout << l_account.size() << endl;
+//    for (account t : l_account) {
+//        t.showInfomation();
+//    }
+//    cout << l_admin.size() << endl;
 
-    data::storageData();
+//    data::storageData();
 
     return a.exec();
 }

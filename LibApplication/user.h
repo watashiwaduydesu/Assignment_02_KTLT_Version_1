@@ -4,11 +4,13 @@
 #include "library.h"
 #include "marco.h"
 #include "account.h"
+#include "book.h"
 
 using namespace std;
 
 class user : public account
 {
+    friend class user_book;
 public:
     user() {role = USER;}
     user(const account &o) {

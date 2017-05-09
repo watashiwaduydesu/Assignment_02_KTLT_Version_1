@@ -5,6 +5,7 @@
 #include "marco.h"
 #include "librarian.h"
 #include "account.h"
+#include "book.h"
 
 using namespace std;
 

@@ -25,7 +25,7 @@ protected:
     void changePassword(int new_password) {password = new_password;}
 
 public:
-    account();
+    account() {}
     account(string name_, int password_, string email_, string id_, string username_, string tel_, int day_, int month_, int year_, int role_, string code_ = "")
         : name(name_), password(password_), email(email_), id(id_), username(username_), tel(tel_), day(day_), month(month_), year(year_), role(role_) {
     }
@@ -44,10 +44,10 @@ public:
 
     void showInfomation(); // ham dung de test mau du lieu
 
-    book findBook_code(string code_book);
-    book findBook_name(string name_book);
-    book findBook_author(string author);
-    book findBook_information(string information);
+    vector<book> findBook_code(string code_book); // cai nay bat buoc dung
+    vector<book> findBook_name(string name_book); // 3 cai sau so chuoi
+    vector<book> findBook_author(string author);
+    vector<book> findBook_information(string information);
 };
 
 #endif // ACCOUNT_H

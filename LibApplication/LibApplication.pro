@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     user.cpp \
     librarian.cpp \
     book.cpp \
-    data.cpp
+    data.cpp \
+    external.cpp \
+    user_book.cpp
 
 HEADERS  += start_activity.h \
     account.h \
@@ -29,4 +31,6 @@ HEADERS  += start_activity.h \
     book.h \
     data.h \
     library.h \
-    marco.h
+    marco.h \
+    external.h \
+    user_book.h

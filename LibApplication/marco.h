@@ -11,7 +11,7 @@
 #define FILE_ACCOUNT            "File/accountList.txt"
 #define FILE_ACCOUNT_REQUIRE    "File/accountRequirement.txt"
 #define FILE_BOOK               "File/bookList.txt"
-#define FILE_BOOK_REQUIRE       "File/bookRequirement.txt"
+#define FILE_USER_REQUIRE_BOOK  "File/userRequireBook.txt"
 
 #define TRUE                    1000
 #define FALSE                   1001

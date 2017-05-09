@@ -1,32 +1,22 @@
 #ifndef DATA_H
 #define DATA_H
 
-#include "library.h"
-#include "marco.h"
-#include "account.h"
-#include "admin.h"
-#include "librarian.h"
-#include "user.h"
-#include "book.h"
+#include "external.h"
 
 using namespace std;
 
-class data // lop data quan li du lieu static cho toan bo chuong trinh
+class data
+        // lop data quan li du lieu cho toan bo chuong trinh
         // load du lieu tu file, storage du lieu xuong file
+        // la friend cua cac lop account, book, user, ... nen co the lay thong tin private
 {
 public:
-    // danh sach cac du lieu static
-    static vector<account> l_account, l_account_require;
-    static vector<admin> l_admin, l_admin_require;
-    static vector<librarian> l_lib, l_lib_require;
-    static vector<user> l_user, l_user_require;
-    static vector<book> l_book, l_book_require;
-
     static int loadData() { // ham load du lieu tu file
         loadDataAccount();
         loadDataAccountRequire();
         loadDataBook();
-        loadDataBookRequire();
+        loadDataUserBook();
+        loadDataUserRequireBook();
         return TRUE;
     }
 
@@ -34,20 +24,24 @@ public:
         storageDataAccount();
         storageDataAccountRequire();
         storageDataBook();
-        storageDataBookRequire();
+        storageDataUserBook();
+        storageDataUserRequireBook();
         return TRUE;
     }
 
+private:
     // cac ham thanh vien trien khai load va storage
     static int loadDataAccount();
     static int loadDataAccountRequire();
     static int loadDataBook();
-    static int loadDataBookRequire();
+    static int loadDataUserBook();
+    static int loadDataUserRequireBook();
 
     static int storageDataAccount();
     static int storageDataAccountRequire();
     static int storageDataBook();
-    static int storageDataBookRequire();
+    static int storageDataUserBook();
+    static int storageDataUserRequireBook();
 };
 
 #endif // DATA_H

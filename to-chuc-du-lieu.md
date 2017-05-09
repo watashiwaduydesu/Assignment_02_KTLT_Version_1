@@ -133,16 +133,27 @@
 	string name, author, information;
 	int remain_number;
 ```
+
+``` cpp
+"user_book":
+	lớp này quản lí một cặp người dùng - sách
+	user _user
+	book _book
+	int d1, m1, y1, d2, m2, y2; // ngày mượn trả sách
+```
 	
 ## Khởi tạo các biến dữ liệu trong hệ thống:
-+ Lớp data lưu các danh sách sau: 
++ Tạo header external.h lưu các biến toàn cục của các file, và file external.cpp để khởi tạo giá trị cho các biến này.
++ Trong đó có các danh sách hệ thống sau:
 ``` cpp
 	+ vector<account> l_account, l_account_require; 
 	+ vector<admin> l_admin, l_admin_require; 
 	+ vector<librarian> l_lib, l_lib_require;
 	+ vector<user> l_user, l_user_require;
 	+ vector<book> l_book;
+	+ vector<user_book> l_user_book, l_user_require_book;
 ```
++ Lớp ``data`` lưu trữ các hàm load dữ liệu và storage dữ liệu, dùng hàm ``friend`` để có thể lấy các thông tin private từ các lớp book, account, ...
 + Khi chương trình được chạy, lớp data được thực thi:
 	+ ``loadData();``
 	+ các danh sách trên được lấy dữ liệu từ file dưới hệ thống

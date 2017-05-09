@@ -5,6 +5,7 @@
 	+ Danh sách sách trong hệ thống
 	+ Danh sách yêu cầu đăng kí mới tài khoản
 	+ Danh sách yêu cầu mượn sách
+	+ Danh sách người dùng - sách đang mượn
 	
 + Các file được lưu trong folder:
 ```
@@ -12,7 +13,8 @@ File/
 	+ accountList.txt
 	+ accountRequirement.txt
 	+ bookList.txt
-	+ bookRequirement.txt
+	+ userRequireBook.txt
+	+ userBook.txt
 	+ test.txt : dùng để test dữ liệu input output khi code
 ```
 

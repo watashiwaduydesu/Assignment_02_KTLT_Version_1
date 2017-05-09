@@ -1,14 +1,5 @@
 #include "data.h"
 
-vector<account> data::l_account, data::l_account_require;
-vector<admin> data::l_admin, data::l_admin_require;
-vector<librarian> data::l_lib, data::l_lib_require;
-vector<user> data::l_user, data::l_user_require;
-vector<book> data::l_book, data::l_book_require;
-
-
-
-
 int data::loadDataAccount() {
     ifstream f(FILE_ACCOUNT);
     if (! f.is_open()) return NOT_ACCESS_FILE;
@@ -62,10 +53,18 @@ int data::storageDataBook() {
     return TRUE;
 }
 
-int data::loadDataBookRequire() {
+int data::loadDataUserBook() {
     return TRUE;
 }
 
-int data::storageDataBookRequire() {
+int data::storageDataUserBook() {
+    return TRUE;
+}
+
+int data::loadDataUserRequireBook() {
+    return TRUE;
+}
+
+int data::storageDataUserRequireBook() {
     return TRUE;
 }
