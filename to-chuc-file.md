@@ -34,7 +34,6 @@ File/
 	+ Dòng 8: day month year
 	+ Dòng 9: int xác định vai trò (admin, user hay lib)
 
-	
 **``File/bookList.txt``**:
 + Dòng 1: int ID_book_last: code book cuối cùng mà hệ thống cấp
 + Dòng 2: int N: số lượng sách
