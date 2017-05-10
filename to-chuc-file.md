@@ -11,9 +11,9 @@
 ```
 File/
 	+ accountList.txt
-	+ accountRequirement.txt
+	+ accountRequests.txt
 	+ bookList.txt
-	+ userRequireBook.txt
+	+ userReqiestedBook.txt
 	+ userBook.txt
 	+ test.txt : dùng để test dữ liệu input output khi code
 ```
@@ -34,6 +34,19 @@ File/
 	+ Dòng 8: day month year
 	+ Dòng 9: int xác định vai trò (admin, user hay lib)
 
+**``File/accountRequests.txt``**:
++ Dòng 1: int N: số lượng account
++ 9 dòng trong N khối dòng tiếp theo theo định dạng:
+	+ Dòng 1: code: mã người dùng
+	+ Dòng 2: name: tên tài khoản
+	+ Dòng 3: password 
+	+ Dòng 4: email
+	+ Dòng 5: id: số chứng minh nhân dân
+	+ Dòng 6: username: tên người dùng
+	+ Dòng 7: tel
+	+ Dòng 8: day month year
+	+ Dòng 9: int xác định vai trò (admin, user hay lib)
+	
 **``File/bookList.txt``**:
 + Dòng 1: int ID_book_last: code book cuối cùng mà hệ thống cấp
 + Dòng 2: int N: số lượng sách
