@@ -18,7 +18,7 @@ public:
         username = o.username; day = o.day; month = o.month; year = o.year; role = USER;
     }
 
-    int requireBook(string code_book);
+    int requireBook(string code_book, QDate begin_date, QDate end_date);
 };
 
 #endif // USER_H

@@ -1,0 +1,12 @@
+18
+2
+IDB0000003
+Nhung nguyen li co ban chu nghia Mac - Le-nin
+Khong Phai Mac
+Tu tuong cach mang, Duong loi cong san, ...
+5
+IDB0000010
+Lap trinh huong doi tuong C++
+Hoang Mang
+Huong doi tuong, ngon ngu lap trinh, lap trinh C++
+10

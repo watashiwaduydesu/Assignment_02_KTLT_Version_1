@@ -11,6 +11,7 @@ class book
     friend class librarian;
     friend class admin;
     friend class user_book;
+    friend class data;
 
 private:
     string code, name, author, information;
@@ -18,10 +19,12 @@ private:
 
 public:
     book() {}
-    book(string name_, string author_, string information_, int remain_number_, string code_ = "")
+    book(string name_, string author_, string information_, int remain_number_, string code_ = ID_NULL)
         : name(name_), author(author_), information(information_), remain_number(remain_number_), code(code_)
     {
     }
+
+    void showInformation();
 
     string getCode() {return code;}
     string getName() {return name;}

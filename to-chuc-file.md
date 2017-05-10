@@ -21,7 +21,8 @@ File/
 ## Tổ chức từng file:
 
 **``File/accountList.txt``**:
-+ Dòng 1: int N: số lượng account
++ Dòng 1: int ID_account_last: code account cuối cùng mà hệ thống cấp
++ Dòng 2: int N: số lượng account
 + 9 dòng trong N khối dòng tiếp theo theo định dạng:
 	+ Dòng 1: code: mã người dùng
 	+ Dòng 2: name: tên tài khoản
@@ -32,3 +33,14 @@ File/
 	+ Dòng 7: tel
 	+ Dòng 8: day month year
 	+ Dòng 9: int xác định vai trò (admin, user hay lib)
+
+	
+**``File/bookList.txt``**:
++ Dòng 1: int ID_book_last: code book cuối cùng mà hệ thống cấp
++ Dòng 2: int N: số lượng sách
++ 5 dòng trong N khối dòng tiếp theo theo định dạng:
+	+ 1: mã sách (code) 
+	+ 2: tên sách (name)
+	+ 3: tên tác giả (author)
+	+ 4: mô tả (information)
+	+ 5: remain_number

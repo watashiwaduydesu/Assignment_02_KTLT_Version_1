@@ -1,19 +1,12 @@
+18
 2
-IDU000001
-tieutung123
-123321
-tieu-tung@gmail.com
-13861837591
-Tieu Van Tung
-090912341
-12 5 1977
-20000
-IDU000002
-gian_kho.qua
-1234123
-qua_gian.kho@hcmut.edu.vn
-13845618324
-Qua Gian Kho
-09091234133
-21 1 1972
-20002
+IDB0000003
+Nhung nguyen li co ban chu nghia Mac - Le-nin
+Khong Phai Mac
+Tu tuong cach mang, Duong loi cong san, ...
+5
+IDB0000010
+Lap trinh huong doi tuong C++
+Hoang Mang
+Huong doi tuong, ngon ngu lap trinh, lap trinh C++
+10

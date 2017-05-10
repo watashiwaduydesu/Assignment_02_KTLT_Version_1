@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <cstdio>
+#include <iomanip>
 #include <cstdlib>
 #include <sstream>
 #include <fstream>
@@ -16,5 +17,7 @@
 #include <set>
 #include <map>
 #include <random>
+
+#include <QDate>
 
 #endif // LIBRARY_H

@@ -20,4 +20,8 @@ extern vector<user_book> l_user_book, l_user_require_book;
 extern int hashPassword(string password);
 extern bool checkPassword(string password, int value);
 
+extern int ID_account, ID_book;
+extern string allocateIDAccount();
+extern string allocateIDBook();
+
 #endif // EXTERNAL_H

@@ -26,7 +26,7 @@ protected:
 
 public:
     account() {}
-    account(string name_, int password_, string email_, string id_, string username_, string tel_, int day_, int month_, int year_, int role_, string code_ = "")
+    account(string name_, int password_, string email_, string id_, string username_, string tel_, int day_, int month_, int year_, int role_, string code_ = ID_NULL)
         : name(name_), password(password_), email(email_), id(id_), username(username_), tel(tel_), day(day_), month(month_), year(year_), role(role_) {
     }
 

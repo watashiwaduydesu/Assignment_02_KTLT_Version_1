@@ -17,7 +17,7 @@ public:
         username = o.username; day = o.day; month = o.month; year = o.year; role = LIBRARIAN;
     }
 
-    void addBook(const book &bk, int number = 1);
+    void addBook(book &bk, int number = 1);
     int eraseBook(const book &bk, int number = 1);
     int eraseBookAll(const book &bk);
 

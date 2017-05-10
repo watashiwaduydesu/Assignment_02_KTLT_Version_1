@@ -3,6 +3,7 @@
 int data::loadDataAccount() {
     ifstream f(FILE_ACCOUNT);
     if (! f.is_open()) return NOT_ACCESS_FILE;
+    f >> ID_account;
     int n = 0;
     f >> n;
     for (int i = 0; i < n; ++i) {
@@ -26,6 +27,7 @@ int data::loadDataAccount() {
 int data::storageDataAccount() {
     ofstream f(FILE_ACCOUNT);
     if (! f.is_open()) return NOT_ACCESS_FILE;
+    f << ID_account << endl;
     f << l_account.size() << endl;
     for (account a: l_account) {
         f << a.code << endl << a.name << endl << a.password << endl;
@@ -46,10 +48,35 @@ int data::storageDataAccountRequire() {
 }
 
 int data::loadDataBook() {
+    ifstream f(FILE_BOOK);
+    if (! f.is_open()) return NOT_ACCESS_FILE;
+    f >> ID_book;
+    int n = 0;
+    f >> n;
+    for (int i = 0; i < n; ++i) {
+        book a;
+        f.get();
+        getline(f, a.code);
+        getline(f, a.name);
+        getline(f, a.author);
+        getline(f, a.information);
+        f >> a.remain_number;
+        l_book.push_back(a);
+    }
+    f.close();
     return TRUE;
 }
 
 int data::storageDataBook() {
+    ofstream f(FILE_BOOK);
+    if (! f.is_open()) return NOT_ACCESS_FILE;
+    f << ID_book << endl;
+    f << l_book.size() << endl;
+    for (book a: l_book) {
+        f << a.code << endl << a.name << endl << a.author << endl;
+        f << a.information << endl << a.remain_number << endl;
+    }
+    f.close();
     return TRUE;
 }
 
